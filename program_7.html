@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program 7</title>
+</head>
+<body>
+    <style>
+
+        body{
+                font-family: sans-serif;
+                margin:0;
+                padding:0;
+                background-image: url('bgsub.jpg');
+        
+            }
+        
+            .add{
+                
+                font-size: 96px;
+                font-weight: bold;
+                float: left;
+                color: black;
+                transform: translateY(200%);
+                margin-left: 50px;
+        
+            }
+        
+            .container{
+                
+            float: right;
+            font-family: arial;
+            padding: 20px;
+            background-color: rgba(229, 227, 236, 0.705);
+            margin-bottom: 50px;
+            transform:translateY(40%);
+            margin-right: 100px;
+            border: none;
+            border-radius: 15px;
+            height: auto;
+            width: 500px;
+            
+            }
+    
+            label{
+            color: rgb(0, 0, 0);
+            }
+    
+            input[type="number"]{
+            background-color: white; 
+            border: solid 1px black;
+            padding: 15px;
+            margin: 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            color: black;
+            }
+    
+            p.result{
+            font-size: 17px;
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            }
+    
+            button.check{
+            padding: 10px 20px;
+            background-color: #0634ff; 
+            color: white;
+            margin-right: 15px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            }
+    
+            button.check:hover {
+            background-color: #150761; 
+        
+            }
+    
+            button.reset{
+            padding: 10px 20px;
+            background-color: #f30a16; 
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+    
+            }
+    
+            button.reset:hover {
+            background-color: rgb(128, 5, 5);
+            }
+    
+            .back{
+    
+            text-align: center;
+            border:none;
+            background-color: transparent;
+            font-size: 14px;
+            padding: 5px;
+            margin-right: 25px;
+            cursor: pointer;
+            color: rgb(0, 0, 0); 
+    
+            }
+    
+            .back:hover{
+            color: #050750;
+            }
+
+            
+            @media only screen and (max-width:500px) {
+            /* For mobile phones: */
+                .add{
+                    
+                    text-align: center;
+                    transform: translateY(0%);
+                    font-size: 50px;
+                    color: white;
+                    margin-left: 70px;
+                }
+                .container{
+                    transform:translateX(60px);
+                    width: 250px;
+                    
+                }
+                .label{
+                    font-size: 14px;
+                    font-family: arial;
+
+                }
+            }
+    </style>
+
+        <div class="top-box">
+            <p class="add">Program 7</p>
+        </div>
+
+        <div class="container">
+
+            <label for="num1">Enter First Number</label>
+            <input type="number" id="num1"/><br/>
+
+            <label for="num2">Enter Second Number</label>
+            <input type="number" id="num2"/><br/>
+
+                <p class="result" id="result">The result is: </p>
+
+            <button class="check" onclick="compute()">CALCULATE</button><br/><br/>
+            <button class="reset" onclick="resetInputs()">RESET</button> <br/><br/>
+            <button class="back" onclick="goToHome()">Go to Home</button><br/><br/>  
+
+        </div>
+
+        <script>
+
+        function compute() {
+        var A = parseFloat(document.getElementById('num1').value);
+        var B = parseFloat(document.getElementById('num2').value);
+
+        if (A == B) {
+        var result = A - B;
+        document.getElementById('result').innerHTML = "The difference: " + result;
+        } else if (A > B) {
+        var result = A + B;
+        document.getElementById('result').innerHTML = "The sum is: " + result;
+        } else if (A < B) {
+        var result = A * B;
+        document.getElementById('result').innerHTML = "The product is: " + result;
+        }
+        }
+
+
+        function resetInputs() {
+            document.getElementById('num1').value = '';
+            document.getElementById('num2').value = '';
+            document.getElementById('result').innerHTML = '';
+        }
+
+        function goToHome () {
+                window.location.href = "index.html"}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voter or Not</title>
+</head>
+<body>
+    <style>
+
+        body{
+                font-family: sans-serif;
+                margin:0;
+                padding:0;
+                background-image: url('bgsub.jpg');
+        
+            }
+        
+            .add{
+                margin-top: 50px;
+                font-size: 96px;
+                font-weight: bold;
+                float: left;
+                color: black;
+                transform: translateY(120%);
+                margin-left: 100px;
+        
+            }
+        
+            .container{
+                
+                float: right;
+                font-family: arial;
+                padding: 20px;
+                background-color: rgba(229, 227, 236, 0.705);
+                margin-bottom: 50px;
+                transform:translateY(40%);
+                margin-right: 120px;
+                border: none;
+                border-radius: 15px;
+                height: auto;
+                width: 500px;
+                
+            }
+    
+            label{
+            color: rgb(0, 0, 0);
+            }
+
+            input[type="text"]{
+            background-color: white; 
+            border: solid 1px black;
+            padding: 15px;
+            margin: 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            color: black;
+            }
+    
+            input[type="number"]{
+            background-color: white; 
+            border: solid 1px black;
+            padding: 15px;
+            margin: 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            color: black;
+            }
+    
+            p.result{
+            font-size: 17px;
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            }
+    
+            button.check{
+            padding: 10px 20px;
+            background-color: #0634ff; 
+            color: white;
+            margin-right: 15px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            }
+    
+            button.check:hover {
+            background-color: #150761; 
+        
+            }
+    
+            button.reset{
+            padding: 10px 20px;
+            background-color: #f30a16; 
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+    
+            }
+    
+            button.reset:hover {
+            background-color: rgb(128, 5, 5);
+            }
+    
+            .back{
+    
+            text-align: center;
+            border:none;
+            background-color: transparent;
+            font-size: 14px;
+            padding: 5px;
+            margin-right: 25px;
+            cursor: pointer;
+            color: rgb(0, 0, 0); 
+    
+            }
+    
+            .back:hover{
+            color: #050750;
+            }
+
+            
+            @media only screen and (max-width:500px) {
+            /* For mobile phones: */
+                .add{
+                    
+                    text-align: center;
+                    transform: translateY(0%);
+                    font-size: 50px;
+                    color: white;
+                    margin-left: 100px;
+                }
+                .container{
+                    transform:translateX(30%);
+                    width: 250px;
+                    
+                }
+                .label{
+                    font-size: 14px;
+                    font-family: arial;
+
+                }
+            }
+        </style>
+
+        <div class="top-box">
+            <p class="add">Voter <br>or Not.</p>
+        </div>
+
+        <div class="container">
+            <label for="name">Enter your name:</label>
+            <input type="text" id="name" placeholder="Enter your name"><br/><br/>
+
+            <label for="age">Enter your age:</label>
+            <input type="number" id="age" placeholder="Enter your age"><br/><br/>
+
+                <p class="result" id="result"></p><br/><br/>
+
+            <button class="check" onclick="checkEligibility()">CHECK ELIGIBITY </button><br/><br/>
+            <button class="reset" onclick="resetInputs()">RESET</button><br/><br/>
+            <button class="back" onclick="goToHome()">Go to Home</button>
+
+        </div>
+
+        <script>
+
+        function goToHome () {
+                window.location.href = "index.html"}
+
+        function checkEligibility() {
+            var name = document.getElementById("name").value;
+            var age = parseInt(document.getElementById("age").value);
+
+            if (isNaN(age)) {
+                document.getElementById("result").textContent = "Please enter a valid age.";
+            } else if (age >= 18) {
+                document.getElementById("result").textContent = name + ", you are allowed to vote!";
+            } else {
+                document.getElementById("result").textContent = name + ", you are not allowed to vote.";
+            }
+        }
+
+        function resetInputs() {
+            document.getElementById('name').value = ''; 
+            document.getElementById('age').value = '';
+            document.getElementById('result').innerHTML = '';
+            
+        }
+        </script>
+
+</body>
+</html>
